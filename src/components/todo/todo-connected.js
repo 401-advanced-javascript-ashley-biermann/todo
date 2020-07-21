@@ -68,7 +68,7 @@ const ToDo = () => {
     <>
       <header>
         <h2>
-          There are {list.filter(item => !item.complete).length} Items To Complete
+          To Do List Manager ({list.filter(item => !item.complete).length}) 
         </h2>
       </header>
 
