@@ -27,7 +27,7 @@ const ToDo = () => {
     }
   };
 
-  const _getTodoItems= () => {
+  const _getTodoItems = () => {
     let list = [
       { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A' },
       { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A' },
@@ -46,12 +46,12 @@ const ToDo = () => {
   useEffect(_updateCount, [list]);
   useEffect(_getTodoItems, []);
 
-  return (  
+  return (
     <>
       <header>
         <h2>
-          There are {count} Items To Complete
-          </h2>
+          To Do List Manager ({count})
+        </h2>
       </header>
 
       <section className="todo">

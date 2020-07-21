@@ -1,33 +1,45 @@
 import React from 'react';
+import { useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
 
 
 const TodoList = (props) => {
+
+  // const [variant, setVariant] = useState('');
+
+  // const _toggleVariant = (e) => {
+  //   e.preventDefault();
+  //   e.target.reset();
+  //   setVariant();
+  // }
+
   return (
     <>
 
+      <ListGroup>
 
-<ListGroup>
-  <ListGroup.Item>Cras justo odio</ListGroup.Item>
-  <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-  <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-  <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-  <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-</ListGroup>
+        <ListGroup.Item variant="success">Success</ListGroup.Item>
+        <ListGroup.Item variant="danger">Danger</ListGroup.Item>
+
+      </ListGroup>
 
 
-      <ul>
+
+      <ListGroup>
         {props.list.map(item => (
-          <li
+          <ListGroup.Item
+            variant="success"
             className={`complete-${item.complete.toString()}`}
             key={item._id}
+            action onClick={() => {
+              props.handleComplete(item._id);
+              // _toggleVariant('danger');
+            }}
           >
-            <span onClick={() => props.handleComplete(item._id)}>
-              {item.text}
-            </span>
-          </li>
+            {item.text}
+          </ListGroup.Item>
         ))}
-      </ul>
+      </ListGroup>
     </>
   )
 }
