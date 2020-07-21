@@ -4,7 +4,6 @@ import TodoList from './list.js';
 
 import './todo.scss';
 
-// class ToDo extends React.Component {
 const ToDo = () => {
 
   const [list, setList] = useState([]);
