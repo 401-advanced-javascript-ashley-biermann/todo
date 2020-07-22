@@ -6,8 +6,6 @@ const TodoForm = (props) => {
 
   const [item, setItem] = useState({});
   
-  console.log('item ', item);
-
   const _handleInputChange = (e) => {
       setItem({...item, [e.target.name]: e.target.value} );
   };
