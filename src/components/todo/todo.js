@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
-
 import './todo.scss';
+
+const axios = require('axios').default;
+
+const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
+
 
 const ToDo = () => {
 
@@ -10,31 +14,78 @@ const ToDo = () => {
   const [count, setCount] = useState(0);
 
   const _addItem = (item) => {
-    item._id = Math.random();
-    item.complete = false;
-    setList([...list, item]);
+    item.due = new Date();
+
+    axios({
+      url: todoAPI,
+      method: 'post',
+      data: JSON.stringify(item),
+      mode: 'cors',
+      cache: 'no-cache',
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(response => response.data)
+      .then(savedItem => {
+        setList([...list, savedItem])
+      })
+      .catch(console.error);
   };
 
   const _toggleComplete = id => {
-
     let item = list.filter(i => i._id === id)[0] || {};
-
     if (item._id) {
       item.complete = !item.complete;
-      let newList = list.map(listItem => listItem._id === item._id ? item : listItem);
-      setList(newList);
+      let url = `${todoAPI}/${id}`;
+
+      axios({
+        url: url,
+        method: 'put',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: { 'Content-Type': 'application/json' },
+        data: JSON.stringify(item)
+      })
+        .then(response => response.data)
+        .then(savedItem => {
+          setList(list.map(listItem => listItem._id === item._id ? savedItem : listItem));
+        })
+        .catch(console.error);
     }
   };
 
   const _getTodoItems = () => {
-    let list = [
-      { _id: 1, complete: false, text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A' },
-      { _id: 2, complete: false, text: 'Do the Laundry', difficulty: 2, assignee: 'Person A' },
-      { _id: 3, complete: false, text: 'Walk the Dog', difficulty: 4, assignee: 'Person B' },
-      { _id: 4, complete: true, text: 'Do Homework', difficulty: 3, assignee: 'Person C' },
-      { _id: 5, complete: false, text: 'Take a Nap', difficulty: 1, assignee: 'Person B' },
-    ];
-    setList(list);
+
+    axios({
+      url: todoAPI, 
+      method: 'get',
+      mode: 'cors',
+    })
+      .then(data => data.data) // axios data.data   
+      .then(data => setList(data.results))
+      .catch(console.error);
+  }
+
+  const _deleteItem = (id) => {
+    
+    let item = list.filter(i => i._id === id)[0] || {};
+
+    if (item._id) {
+      let url = `${todoAPI}/${id}`;
+
+      // fetch = axios
+      // url goes inside object (not before)
+      axios({
+        url: url,
+        method: 'delete',
+        mode: 'cors',
+        cache: 'no-cache',
+        headers: { 'Content-Type': 'application/json' },
+        // use data, not body
+        data: JSON.stringify(item)
+      })
+        .then(response => _getTodoItems())
+        .catch(console.error);
+    }
   }
 
   const _updateCount = () => {
@@ -44,6 +95,7 @@ const ToDo = () => {
 
   useEffect(_updateCount, [list]);
   useEffect(_getTodoItems, []);
+  useEffect(_deleteItem, []);
 
   return (
     <>
@@ -56,13 +108,16 @@ const ToDo = () => {
       <section className="todo">
 
         <div>
-          <TodoForm handleSubmit={_addItem} />
+          <TodoForm
+            handleSubmit={_addItem}
+          />
         </div>
 
         <div>
           <TodoList
             list={list}
             handleComplete={_toggleComplete}
+            handleDelete={_deleteItem}
           />
         </div>
       </section>
