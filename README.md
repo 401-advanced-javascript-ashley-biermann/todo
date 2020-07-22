@@ -6,7 +6,7 @@
 
 ### Links and Resources
 
-- [submission PR](https://github.com/401-advanced-javascript-ashley-biermann/todo/pull/3)
+- [submission PR](https://github.com/401-advanced-javascript-ashley-biermann/todo/pull/4)
 - [ci/cd](https://github.com/401-advanced-javascript-ashley-biermann/notes/tree/master/.github/workflows) (GitHub Actions)
 - [back-end server url](http://xyz.com) (when applicable)
 - [front-end application](http://xyz.com) (when applicable)
@@ -29,10 +29,8 @@ i.e.
 #### Tests
 
 - `npm test`
-- How do you run tests?
-- Any tests of note?
-- Describe any tests that you did not complete, skipped, etc
+- Not yet implemented
 
 #### UML
 
-Link to an image of the UML for your application and response to events
+![uml]()

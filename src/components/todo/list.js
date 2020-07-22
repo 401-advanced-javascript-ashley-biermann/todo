@@ -17,6 +17,9 @@ const TodoList = (props) => {
             <span onClick={() => props.handleComplete(item._id)}>
             {item.text}
             </span>
+
+            <input type="button" value="delete" onClick={() => props.handleDelete(item._id)}>
+            </input>
           </li>
         ))}
       </ul>
