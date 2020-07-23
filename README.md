@@ -8,14 +8,12 @@
 
 - [submission PR](https://github.com/401-advanced-javascript-ashley-biermann/todo/pull/6)
 - [ci/cd](https://github.com/401-advanced-javascript-ashley-biermann/notes/tree/master/.github/workflows) (GitHub Actions)
-- [back-end server url](http://xyz.com) (when applicable)
+- [back-end server url](https://api-js401.herokuapp.com/api/v1/todo) (starter code database)
 - [front-end application](http://xyz.com) (when applicable)
 
 ### Setup
 
 #### `.env` requirements (where applicable)
-
-i.e.
 
 - `PORT` - Port Number
 - `MONGODB_URI` - URL to the running mongo instance/db
@@ -29,7 +27,6 @@ i.e.
 #### Tests
 
 - `npm test`
-- Not yet implemented
 
 #### UML
 
