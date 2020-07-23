@@ -1,19 +1,18 @@
 import { useState } from 'react';
 
-// callback passed in from ... in this case ... form.js
 const useForm = (callback) => {
 
   // this hooks needs a function for handling input changes and handling Form submissions.
   const [ formData, setFormData ] = useState({});
 
   const handleChange = (event) => {
-    // before we run, it looks like this: {} | after we run, it looks like this "Ashley"
+    event.preventDefault();
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
+    event.target.reset();
     callback(formData);
   };
 
