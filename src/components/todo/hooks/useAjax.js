@@ -1,22 +1,27 @@
 // a hook that exports ajax request functionality
 
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
-const useFetch = (url, options) => {
+// const useFetch = (options) => {
 
-  const [data, setData] = useState(null);
+//   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async => {
-      fetch(url, options)
-        .then((response) => response.json())
-        .then((results) => {
-          setData(results);
-        });
-    };
-    fetchData();
-  }, []);
-  return { data };
-};
+//   useEffect(() => {
+//     console.log(options);
 
-export default useFetch;
+//     if(options.url) {
+
+//       const fetchData = async () => {
+//         fetch(options)
+//           .then((response) => response.data)
+//           .then((results) => {
+//             setData(results);
+//           });
+//       };
+//       fetchData();
+//     }
+//   }, []);
+//   return { data };
+// };
+
+// export default useFetch;
