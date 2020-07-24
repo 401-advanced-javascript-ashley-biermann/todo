@@ -31,8 +31,8 @@ const ToDo = () => {
       .catch(console.error);
   };
 
-  const _toggleComplete = id => {
-    let item = list.filter(i => i._id === id)[0] || {};
+  const _toggleComplete = (id, displayList) => {
+    let item = displayList.filter(i => i._id === id)[0] || {};
     if (item._id) {
       item.complete = !item.complete;
       let url = `${todoAPI}/${id}`;
