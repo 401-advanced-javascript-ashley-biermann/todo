@@ -6,6 +6,11 @@ body, html {
   padding:0;
   width: 100%;
 }
+
+#handleShowComplete {
+  margin-bottom: 7px;
+}
+
 .todo-details {
   display:flex;
   flex-direction:column;
