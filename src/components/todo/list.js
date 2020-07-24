@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Badge, Button, Container, Col, ListGroup, Row, Toast } from 'react-bootstrap';
+import { Badge, Container, Col, ListGroup, Row, Toast } from 'react-bootstrap';
 import Pagination from 'react-bootstrap-4-pagination';
 import { SettingsContext } from '../../context/settings/context.js';
 
 const TodoList = (props) => {
-
   const context = useContext(SettingsContext);
 
   const [currentPage, setCurrentPage] = useState(1);
