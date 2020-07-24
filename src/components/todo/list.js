@@ -22,7 +22,6 @@ const TodoList = (props) => {
       return "danger";
     }
   }
-
   // const handleShowComplete = () => {
   //   setShowComplete(!showComplete);
 

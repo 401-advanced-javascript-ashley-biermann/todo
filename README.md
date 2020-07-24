@@ -6,11 +6,7 @@
 
 ### Links and Resources
 
-<<<<<<< HEAD
 - [submission PR](https://github.com/401-advanced-javascript-ashley-biermann/todo/pull/7)
-=======
-- [submission PR](https://github.com/401-advanced-javascript-ashley-biermann/todo/pull/6)
->>>>>>> master
 - [ci/cd](https://github.com/401-advanced-javascript-ashley-biermann/notes/tree/master/.github/workflows) (GitHub Actions)
 - [back-end server url](https://api-js401.herokuapp.com/api/v1/todo) (starter code database)
 - [front-end application](http://xyz.com) (when applicable)
