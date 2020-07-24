@@ -76,8 +76,6 @@ const TodoList = (props) => {
 
   return (
     <>
-      <Button id="handleShowComplete" as="input" type="button" value="Show/Hide Complete" onClick={handleShowComplete} />
-      
       <ListGroup as="ul" id="toDoList" variant="flush">
         {displayList.map(item => (
           <Toast as="li"
